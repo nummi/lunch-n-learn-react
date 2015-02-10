@@ -1,0 +1,227 @@
+.list.list--positioned
+  @extend .scroll-view
+
+
+.list-spacer
+  height: 26px
+  background: #f6f6f6
+
+
+.list-item
+  overflow: hidden
+  position: relative
+  display: block
+  padding-left: 15px
+  color: #111
+  text-decoration: none
+  background: #fff
+
+  &.animate
+    +transition(all 0.25s $ease-out-circ)
+
+  &:before
+    position: absolute
+    top: 50%
+    left: 15px
+    margin-top: -9px
+    color: $neo-purple
+    font-size: 1.6rem
+    z-index: 2
+
+.list-item--with-image .list-item-content
+  padding-left: 50px
+
+.list-item--with-check .list-item-content
+  padding-left: 34px
+
+
+.list-item.icon-check:before
+  @include animation(fade-in 0.25s linear)
+
+.list-item--error .list-item-label-text
+  color: #d00
+
+.list-item.list-item--error:last-of-type .list-item-content,
+.list-item--error .list-item-content
+  border-bottom-color: #d00
+
+.list-item--heading
+  top: 0
+  border-bottom: none
+  padding: 15px 0 8px 17px
+  color: #888
+  font-size: 1.3rem
+  font-weight: 300
+  text-transform: uppercase
+  background: #f6f6f6
+  z-index: 1
+  box-shadow: 0 -1px 1px #fff
+
+
+.list-item-image
+  position: absolute
+  top: 50%
+  left: 0
+  width: 40px
+  height: 40px
+  margin-top: -20px
+  border-radius: 50%
+  color: #fff
+  font-size: 1.8rem
+  line-height: 40px
+  text-align: center
+  background: #b7b7b7
+
+  &.list-item-image--empty
+    border: 1px solid #b7b7b7
+    background: transparent
+
+
+// list-item modifier
+.list-item--field
+  padding-left: 15px
+
+  .list-item-content
+    padding: 0
+    +display(flex)
+    +justify-content(space-between)
+
+    input, textarea
+      outline: 0
+      border: 1px solid #ccc
+      font-size: 1.3rem
+
+    > input, > textarea, > .list-item-fields-group
+      border: 0
+      padding: 12px
+      background: transparent
+      +flex-grow(1)
+
+.list-item-label-text
+  padding: 0 10px 0 0
+  color: #999
+  font-size: 1.5rem
+  +transform(translateY(0.8rem))
+
+.list-item-error-text
+  position: absolute
+  top: 6px
+  right: 8px
+  color: #666
+  font-size: 1.1rem
+
+
+
+// list-item modifier
+.list-item--button
+  padding-left: 0
+  color: $neo-purple
+  text-align: center
+
+  .list-item-content
+    padding: 25px 0
+
+
+// list-item modifier
+.list-item--search
+  padding-left: 0
+  background: #cbcacf
+
+  .list-item-content
+    padding: 8px
+
+  input
+    position: relative
+    top: -2px
+    width: 100%
+    border: 1px solid #ddd
+    border-radius: 4px
+    padding: 8px 0 8px 10px
+    font-size: 1.4rem
+    background: #fff
+    outline: none
+    -webkit-appearance: none
+
+.search-input-wrapper
+  position: relative
+  display: inline
+
+  .search-input-wrapper-close
+    position: absolute
+    top: 7px
+    right: 5px
+    display: block
+    width: 20px
+    height: 20px
+    border-radius: 50%
+    color: #999
+    font-size: 2.4rem
+    line-height: 16px
+    text-align: center
+    @include animation(fade-in 0.5s linear)
+
+
+// main content inside list-item
+.list-item-content
+  overflow: hidden
+  position: relative
+  display: block
+  border-bottom: 1px solid #c8c7cc
+  padding: 11px 15px 12px 2px
+  text-decoration: none
+  background: #fff
+  z-index: 1
+
+.__show-actions .list-item-content
+  +transition(all 0.1s)
+  +transform(translate(-77px, 0))
+
+
+.list-item-actions
+  +position(absolute, 0px 0px 0px auto)
+  font-size: 1.4rem
+  text-align: center
+
+.list-item-action-delete
+  width: 77px
+  color: #fff
+  background: #f22
+
+
+
+.list-item-content-right
+  float: right
+
+
+// Just a line of text
+.list-item-text
+  padding: 5px 0
+  color: #573ba0
+  font-size: 1.9rem
+  font-weight: 400
+  +dotdotdot()
+
+
+// Bold title, meant to use with sub-title(s)
+.list-item-title
+  padding-bottom: 5px
+  color: $neo-purple
+  font-size: 1.7rem
+  font-weight: 400
+  +dotdotdot()
+
+  &:last-of-type
+    margin-bottom: 0
+
+// Extra details under title
+.list-item-sub-title
+  margin-bottom: 3px
+  color: #919090
+  font-size: 1.2rem
+  +dotdotdot()
+
+  &:last-of-type
+    margin-bottom: 0
+
+.list-item:last-of-type .list-item-content
+  border-bottom-color: transparent

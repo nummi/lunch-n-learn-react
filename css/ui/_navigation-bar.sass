@@ -1,0 +1,63 @@
+.__with-navigation-bar-above
+  padding-top: $navigation-bar-height
+
+.navigation-bar
+  +position(absolute, 0px 0px auto 0px)
+  +transition(all 0.2s)
+  height: $navigation-bar-height
+  border-bottom: 1px solid rgba(0,190,130, 0.95)
+  font-size: 1.7rem
+  line-height: $navigation-bar-height
+  background: rgba(0,211,155, 0.95)
+  z-index: 3
+
+.grey-out .navigation-bar
+  border-bottom-color: rgba(95,95,95, 0.95)
+  background: rgba(150,150,150, 0.95)
+
+.navigation-bar-title
+  color: #fff
+  font-size: 1.9rem
+  font-weight: bold
+  text-align: center
+  opacity: 1
+  +position(absolute, 0px 0px 0px 0px)
+  +transition(all 0.75s $ease-out-circ)
+
+.out .navigation-bar-title
+  opacity: 0
+
+.__shiftLeft .navigation-bar-title
+  left: -40%
+
+
+.navigation-bar-button
+  position: relative
+  padding: 0 8px
+  color: #fff
+  text-decoration: none
+  z-index: 1
+  opacity: 1
+  +transition(all 1s)
+
+  &:active
+    top: 1px
+
+  &:before
+    position: relative
+    top: 2px
+
+.navigation-bar-button--disabled
+  opacity: 0.6
+
+.navigation-bar-button--right
+  float: right
+
+.navigation-button-bar--left
+  float: left
+
+.navigation-bar-button--default
+  font-weight: 700
+
+.out .navigation-bar-button
+  opacity: 0

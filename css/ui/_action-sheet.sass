@@ -1,0 +1,18 @@
+.action-sheet
+  +position(absolute, 0px 0px 0px 0px)
+  background: rgba(200, 200, 200, 0)
+  z-index: 4
+
+  &.animate
+    +transition(all 0.5s $ease-out-circ)
+
+  &.in
+    background: rgba(200, 200, 200, 0.5)
+
+.action-sheet-buttons
+  +position(absolute, auto 0px 0px 0px)
+  padding: 0 10px
+
+  .button
+    margin-bottom: 8px
+    background: #fff

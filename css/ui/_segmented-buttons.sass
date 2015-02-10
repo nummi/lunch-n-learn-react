@@ -1,0 +1,34 @@
+.segmented-buttons
+  position: relative
+  display: inline-block
+  +display(flex)
+  +align-items(stretch)
+  +justify-content(space-between)
+
+.segmented-button
+  position: relative
+  float: left
+  display: inline-block
+  margin-left: -1px
+  border: 1px solid $neo-purple
+  padding: 9px 0
+  color: $neo-purple
+  font-size: 1.6rem
+  font-weight: 400
+  text-align: center
+  white-space: nowrap
+  background: #fff
+  +flex-grow(1)
+  +transition(all 0.15s)
+
+  &.__active
+    color: #fff
+    background: $neo-purple
+
+  &:first-of-type
+    border-top-left-radius: 7px
+    border-bottom-left-radius: 7px
+
+  &:last-of-type
+    border-top-right-radius: 7px
+    border-bottom-right-radius: 7px

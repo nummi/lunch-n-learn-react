@@ -1,0 +1,47 @@
+// modifier for absolute positioned elements
+.__with-button-bar-below
+  bottom: $button-bar-height !important
+
+
+.button-bar
+  +position(absolute, auto 0px 0px 0px)
+  height: $button-bar-height
+  +display(flex)
+  +align-items(stretch)
+  +justify-content(space-between)
+  +transition(all 0.3s $ease-out-circ)
+  background: #e9e9ea
+
+.button-bar-item
+  position: relative
+  border-right: 1px solid #fff
+  color: $neo-purple
+  font-size: 1.8rem
+  line-height: $button-bar-height
+  text-align: center
+  text-decoration: none
+  +flex-grow(1)
+
+  &.active
+    color: $neo-purple
+
+  svg
+    display: inline-block
+    width: 25px
+    height: 25px
+
+  path, stroke, polygon
+    fill: $neo-purple
+
+.button-bar-item--red-text
+  color: $ios-red
+
+.button-bar-token
+  display: inline-block
+  width: 30px
+  height: 30px
+  border-radius: 50%
+  color: #fff
+  line-height: 30px
+  text-align: center
+  background: $neo-purple
