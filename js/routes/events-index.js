@@ -2,11 +2,22 @@ var React  = require('react');
 var Router = require('react-router');
 var Link   = Router.Link;
 
-var ListItem = require('../components/list-item');
+var EventStore = require('../stores/event-store');
+var ListItem   = require('../components/list-item');
 
 module.exports = React.createClass({
+  getInitialState() {
+    return {
+      events: EventStore.findAll()
+    }
+  },
+
   render() {
     var headingStyle = { paddingLeft: 65 };
+
+    var events = this.state.events.map((e) => {
+      return <ListItem key={e.id} event={e} />;
+    });
 
     return (
       <div className="screen">
@@ -18,11 +29,7 @@ module.exports = React.createClass({
 
         <div className="list list--positioned __with-navigation-bar-above __with-tab-bar-below">
           <div className="list-item list-item--heading" style={headingStyle}>Columbus</div>
-          <ListItem eventId="1" />
-          <ListItem eventId="2" />
-          <ListItem eventId="3" />
-          <ListItem eventId="4" />
-          <ListItem eventId="5" />
+          {events}
         </div>
 
       </div>

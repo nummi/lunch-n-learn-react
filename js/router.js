@@ -3,14 +3,15 @@ var Router       = require('react-router');
 var DefaultRoute = Router.DefaultRoute;
 var Route        = Router.Route;
 
-var App          = require('./routes/app');
-var Events       = require('./routes/events');
-var EventsIndex  = require('./routes/events-index');
-var EventsNew    = require('./routes/events-new');
-var EventsDetail = require('./routes/events-detail');
-var History      = require('./routes/history');
-var Ideas        = require('./routes/ideas');
-var Settings     = require('./routes/settings');
+var App         = require('./routes/app');
+var Events      = require('./routes/events');
+var EventsIndex = require('./routes/events-index');
+var EventsNew   = require('./routes/events-new');
+var EventsShow  = require('./routes/events-show');
+var EventsEdit  = require('./routes/events-edit');
+var History     = require('./routes/history');
+var Ideas       = require('./routes/ideas');
+var Settings    = require('./routes/settings');
 
 var routes = (
   <Route handler={App}>
@@ -18,8 +19,9 @@ var routes = (
 
     <Route name="events" path="/events" handler={Events}>
       <DefaultRoute name="events-index" handler={EventsIndex}/>
-      <Route name="events-new" path="/events/new" handler={EventsNew} />
-      <Route name="events-detail" path="/events/:eventId" handler={EventsDetail} />
+      <Route name="events-new"  path="/events/new" handler={EventsNew} />
+      <Route name="events-show" path="/events/:eventId" handler={EventsShow} />
+      <Route name="events-edit" path="/events/:eventId/edit" handler={EventsEdit} />
     </Route>
 
     <Route name="history"  path="/history"  handler={History} />
@@ -28,6 +30,6 @@ var routes = (
   </Route>
 );
 
-Router.run(routes, Router.HistoryLocation, function (Handler) {
+Router.run(routes, function (Handler) {
   React.render(<Handler/>, document.body);
 });

@@ -3,7 +3,7 @@ var Router = require('react-router');
 var Link   = Router.Link;
 
 module.exports = React.createClass({
-  destroyObject() {
+  destroy() {
     alert('destroy!');
   },
 
@@ -11,17 +11,17 @@ module.exports = React.createClass({
     return (
       <div className="list-item list-item--with-image">
 
-        <Link to="events-detail" params={{eventId: this.props.eventId}}  className="list-item-content">
-          <div className="list-item-image">JN</div>
-          <div className="list-item-title">Lunch 'n' Learn React</div>
+        <Link to="events-show" params={{eventId: this.props.event.id}} className="list-item-content">
+          <div className="list-item-image">{this.props.event.authorInitials}</div>
+          <div className="list-item-title">{this.props.event.title}</div>
           <div className="list-item-sub-title">
-            Tuesday February 10th, 2015
-            &ndash; Jerry Nummi
+            {this.props.event.date}
+            &ndash; {this.props.event.authorName}
           </div>
         </Link>
 
         <div className="list-item-actions">
-          <div className="list-item-action-delete" onClick={this.destroyObject}>Delete</div>
+          <div className="list-item-action-delete" onClick={this.destroy}>Delete</div>
         </div>
 
       </div>
